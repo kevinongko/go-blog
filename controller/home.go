@@ -12,7 +12,7 @@ import (
 // HomeIndex to show homepage
 func HomeIndex(res http.ResponseWriter, req *http.Request) {
 	var article model.Article
-	database.DBCon.First(&article, 1)
+	database.ORM.First(&article, 1)
 
 	html, err := template.ParseFiles("view/home.html")
 
