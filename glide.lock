@@ -1,5 +1,5 @@
-hash: 205eba8e7ee896f5118e9dd244c02b94c9376d1605a006f77a9c743dd67f1927
-updated: 2017-09-06T14:42:21.530291409+07:00
+hash: e1493cdcf4ea8ab389d64c475ab49a358aaba1e8821fa227a7200efca93ed471
+updated: 2017-09-07T14:08:13.144185878+07:00
 imports:
 - name: github.com/go-sql-driver/mysql
   version: 26471af196a17ee75a22e6481b5a5897fb16b081
@@ -13,4 +13,6 @@ imports:
   - dialects/mysql
 - name: github.com/jinzhu/inflection
   version: 1c35d901db3da928c72a72d8458480cc9ade058f
+- name: github.com/unrolled/render
+  version: a0ec58421ddf111bd7efd3b7087399ca7d5da2f1
 testImports: []

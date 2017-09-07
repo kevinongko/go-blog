@@ -6,3 +6,4 @@ import:
   version: ^1.0.0
   subpackages:
   - dialects/mysql
+- package: github.com/unrolled/render

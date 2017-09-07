@@ -4,20 +4,25 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/kevinongko/go-blog/model"
 	"github.com/kevinongko/go-blog/router"
 
-	"github.com/gorilla/mux"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"github.com/kevinongko/go-blog/app"
+	"github.com/kevinongko/go-blog/model"
 )
 
 func main() {
-	model.InitDB("root:secret@/goblog?charset=utf8&parseTime=True&loc=Local")
+	app.InitRouter()
+	app.InitRender()
+	app.InitDB("root:secret@/goblog?charset=utf8&parseTime=True&loc=Local")
+	app.DB.AutoMigrate(
+		&model.Article{},
+		&model.User{},
+	)
 
-	Router := mux.NewRouter()
-	router.SetWebRoutes(Router)
-	router.SetAPIRoutes(Router)
+	router.SetWebRoutes()
+	router.SetAPIRoutes()
 
 	fmt.Println("webserver start at http://localhost:3000")
-	http.ListenAndServe(":3000", Router)
+	http.ListenAndServe(":3000", app.Router)
 }
