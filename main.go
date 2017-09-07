@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/kevinongko/go-blog/database"
+	"github.com/kevinongko/go-blog/model"
 	"github.com/kevinongko/go-blog/router"
 
 	"github.com/gorilla/mux"
@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	database.Init("root:secret@/goblog?charset=utf8&parseTime=True&loc=Local")
+	model.InitDB("root:secret@/goblog?charset=utf8&parseTime=True&loc=Local")
 
 	Router := mux.NewRouter()
 	router.SetWebRoutes(Router)
